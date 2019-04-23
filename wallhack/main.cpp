@@ -8,13 +8,13 @@
 ProcMem tom; // memory obj
 
 DWORD Lplayer = 0xCD2764;  // dwLocalPlayer
-DWORD Elist = 0x4CE34DC;  //EnityList
-DWORD glowobj = 0x5223730;  //dwGlowObject
-DWORD iattack = 0x3114BA4;
+DWORD Elist = 0x4CE44EC;  //EnityList
+DWORD glowobj = 0x5224748;  //dwGlowObject
+DWORD iattack = 0x3115BB4;
 DWORD gIndex = 0xA3F8;  //GlowIndex
 DWORD oTeam = 0xF4;
 DWORD oFlags = 0x104;
-DWORD iJump = 0x5186978;
+DWORD iJump = 0x5187988;
 DWORD CrossH = 0xB394;
 DWORD iHealth = 0x100;
 DWORD m_ifovs = 0x31E8;  //m_iFOVStart
@@ -115,13 +115,13 @@ void makelight(int human, player man) // show player
 		/* MENU */
 
 		//cout << "welcome to TOM external!" << "\npress F1 to start!" << endl;
-		cout << "�� ";
+		cout << "欢 ";
 		type_eff();
-		cout << "ӭ ";
+		cout << "迎 ";
 		type_eff();
-		cout << "ʹ ";
+		cout << "使 ";
 		type_eff();
-		cout << "�� ";
+		cout << "用 ";
 		type_eff();
 		cout << "T";
 		type_eff();
@@ -129,27 +129,27 @@ void makelight(int human, player man) // show player
 		type_eff();
 		cout << "M ";
 		type_eff();
-		cout << "��";
+		cout << "外";
 		type_eff();
-		cout << "��";
+		cout << "置";
 		type_eff();
-		cout << "��";
+		cout << "辅";
 		type_eff();
-		cout << "��" << endl;
+		cout << "助" << endl;
 		type_eff();
 		Sleep(300);
 		cout <<"\n"<< endl;
-		cout << "˧˧˧˧˧    ˧˧˧  ˧˧˧  ˧˧˧" << endl;
-		cout << "˧  ˧  ˧  ˧      ˧  ˧˧  ˧˧" << endl;
-		cout << "    ˧      ˧      ˧  ˧˧  ˧˧" << endl;
-		cout << "    ˧      ˧      ˧  ˧˧  ˧˧" << endl;
-		cout << "    ˧      ˧      ˧  ˧  ˧  ˧" << endl;
-		cout << "    ˧      ˧      ˧  ˧  ˧  ˧" << endl;
-		cout << "  ˧˧˧      ˧˧˧  ˧˧  ˧  ˧˧" << endl;
+		cout << "帅帅帅帅帅    帅帅帅  帅帅帅  帅帅帅" << endl;
+		cout << "帅  帅  帅  帅      帅  帅帅  帅帅" << endl;
+		cout << "    帅      帅      帅  帅帅  帅帅" << endl;
+		cout << "    帅      帅      帅  帅帅  帅帅" << endl;
+		cout << "    帅      帅      帅  帅  帅  帅" << endl;
+		cout << "    帅      帅      帅  帅  帅  帅" << endl;
+		cout << "  帅帅帅      帅帅帅  帅帅  帅  帅帅" << endl;
 		//  cout << "" << endl;
 		Sleep(250);
 		cout << "\n";
-		cout << "���� С����1 ����ʹ��!";
+		cout << "按下 小键盘1 激活使用!";
 		cout << "\n";
 		while (true) {
 			static bool init = false;
