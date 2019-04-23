@@ -3,7 +3,7 @@ CSGO 外部发光透视
 反作弊(Anti-cheat) : VAC (still Safe)
 
 功能:
-1.发光透视(敌人)
+1.发光透视(敌人)\N
 2.连跳(bhop)
 3.自动扳机(triggerbot)
 4.视野宽度(fovchange)
