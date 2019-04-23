@@ -9,4 +9,4 @@ CSGO 外部发光透视
 4.视野宽度(fovchange)
 5.发光透视(All)
 6.无视闪光弹(noflash)
-7.假延迟(fakelag)----有bug
+7.假延迟(fakelag)----有buG
