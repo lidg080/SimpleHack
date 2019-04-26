@@ -7,19 +7,19 @@
 #include "ProcMem.h" // memory header
 ProcMem tom; // memory obj
 
-DWORD Lplayer = 0xCD2764;  // dwLocalPlayer
-DWORD Elist = 0x4CE44EC;  //EnityList
-DWORD glowobj = 0x5224748;  //dwGlowObject
-DWORD iattack = 0x3115BB4;
+DWORD Lplayer = 0xCD4774;  // dwLocalPlayer
+DWORD Elist = 0x4CE54EC;  //EnityList
+DWORD glowobj = 0x5225718;  //dwGlowObject
+DWORD iattack = 0x3116B9C;
 DWORD gIndex = 0xA3F8;  //GlowIndex
 DWORD oTeam = 0xF4;
 DWORD oFlags = 0x104;
-DWORD iJump = 0x5187988;
+DWORD iJump = 0x5188988;
 DWORD CrossH = 0xB394;
 DWORD iHealth = 0x100;
 DWORD m_ifovs = 0x31E8;  //m_iFOVStart
 DWORD flashmax = 0xA3DC;
-DWORD dwbSendPackets = 0xD255A;
+DWORD dwbSendPackets = 0xD255A;  //dwbSendPackets
 DWORD engine;
 DWORD bClient;
 DWORD LocalBase;
