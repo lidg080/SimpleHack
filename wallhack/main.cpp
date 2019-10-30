@@ -7,19 +7,25 @@
 #include "ProcMem.h" // memory header
 ProcMem tom; // memory obj
 
-DWORD Lplayer = 0xCD4774;  // dwLocalPlayer
-DWORD Elist = 0x4CE54EC;  //EnityList
-DWORD glowobj = 0x5225718;  //dwGlowObject
-DWORD iattack = 0x3116B9C;
-DWORD gIndex = 0xA3F8;  //GlowIndex
+DWORD Lplayer = 0xCFAA3C;  // dwLocalPlayer
+DWORD Elist = 0x4D0D094;  //EnityList
+DWORD glowobj = 0x524D500;  //dwGlowObject
+DWORD iattack = 0x313E7B0;
+DWORD gIndex = 0xA40C;  //GlowIndex
 DWORD oTeam = 0xF4;
 DWORD oFlags = 0x104;
-DWORD iJump = 0x5188988;
-DWORD CrossH = 0xB394;
+DWORD iJump = 0x51B0748;
+DWORD CrossH = 0xB3AC;
 DWORD iHealth = 0x100;
 DWORD m_ifovs = 0x31E8;  //m_iFOVStart
-DWORD flashmax = 0xA3DC;
-DWORD dwbSendPackets = 0xD255A;  //dwbSendPackets
+DWORD flashmax = 0xA3F0;
+DWORD dwbSendPackets = 0xD2F9A;  //dwbSendPackets
+DWORD dwPRS = 0x313CADC; //dwPlayerResource
+DWORD m_iTeam = 0xF38; //m_iOriginalTeamNumber
+DWORD iScore = 0x1980;
+DWORD iRank = 0x1A84; //m_iCompetitiveRanking
+DWORD m_iping = 0xB28;
+DWORD m_iname = 0x154;
 DWORD engine;
 DWORD bClient;
 DWORD LocalBase;
@@ -70,6 +76,29 @@ struct player
 	float r, g, b, a;
 };
 
+const char* showranking[19] =
+{
+	"ÎÞ¶ÎÎ»",
+	"°×Òø1",
+	"°×Òø2",
+	"°×Òø3",
+	"°×Òø4",
+	"°×Òø5",
+	"°×Òø´óÊ¦",
+	"»Æ½ð1",
+	"»Æ½ð2",
+	"»Æ½ð3",
+	"»Æ½ð4",
+	"µ¥AK",
+	"ÂóËëAK",
+	"Ë«AK",
+	"¾Õ»¨",
+	"Ð¡ÀÏÓ¥",
+	"´óÀÏÓ¥",
+	"Ð¡µØÇò",
+	"´óµØÇò"
+};
+
 void Startup() // do startup things
 {
 	tom.Process("csgo.exe"); // not a good way to do this
@@ -114,14 +143,14 @@ void makelight(int human, player man) // show player
 		using namespace std;
 		/* MENU */
 
-		//cout << "welcome to TOM external!" << "\npress F1 to start!" << endl;
-		cout << "æ¬¢ ";
+		//cout << "welcome to TOM external!" << "\npress NUM1 to start!" << endl;
+		cout << "»¶ ";
 		type_eff();
-		cout << "è¿Ž ";
+		cout << "Ó­ ";
 		type_eff();
-		cout << "ä½¿ ";
+		cout << "Ê¹ ";
 		type_eff();
-		cout << "ç”¨ ";
+		cout << "ÓÃ ";
 		type_eff();
 		cout << "T";
 		type_eff();
@@ -129,27 +158,27 @@ void makelight(int human, player man) // show player
 		type_eff();
 		cout << "M ";
 		type_eff();
-		cout << "å¤–";
+		cout << "Íâ";
 		type_eff();
-		cout << "ç½®";
+		cout << "ÖÃ";
 		type_eff();
-		cout << "è¾…";
+		cout << "¸¨";
 		type_eff();
-		cout << "åŠ©" << endl;
+		cout << "Öú" << endl;
 		type_eff();
 		Sleep(300);
-		cout <<"\n"<< endl;
-		cout << "å¸…å¸…å¸…å¸…å¸…    å¸…å¸…å¸…  å¸…å¸…å¸…  å¸…å¸…å¸…" << endl;
-		cout << "å¸…  å¸…  å¸…  å¸…      å¸…  å¸…å¸…  å¸…å¸…" << endl;
-		cout << "    å¸…      å¸…      å¸…  å¸…å¸…  å¸…å¸…" << endl;
-		cout << "    å¸…      å¸…      å¸…  å¸…å¸…  å¸…å¸…" << endl;
-		cout << "    å¸…      å¸…      å¸…  å¸…  å¸…  å¸…" << endl;
-		cout << "    å¸…      å¸…      å¸…  å¸…  å¸…  å¸…" << endl;
-		cout << "  å¸…å¸…å¸…      å¸…å¸…å¸…  å¸…å¸…  å¸…  å¸…å¸…" << endl;
+		cout << "\n" << endl;
+		cout << "Ë§Ë§Ë§Ë§Ë§    Ë§Ë§Ë§  Ë§Ë§Ë§  Ë§Ë§Ë§" << endl;
+		cout << "Ë§  Ë§  Ë§  Ë§      Ë§  Ë§Ë§  Ë§Ë§" << endl;
+		cout << "    Ë§      Ë§      Ë§  Ë§Ë§  Ë§Ë§" << endl;
+		cout << "    Ë§      Ë§      Ë§  Ë§Ë§  Ë§Ë§" << endl;
+		cout << "    Ë§      Ë§      Ë§  Ë§  Ë§  Ë§" << endl;
+		cout << "    Ë§      Ë§      Ë§  Ë§  Ë§  Ë§" << endl;
+		cout << "  Ë§Ë§Ë§      Ë§Ë§Ë§  Ë§Ë§  Ë§  Ë§Ë§" << endl;
 		//  cout << "" << endl;
 		Sleep(250);
 		cout << "\n";
-		cout << "æŒ‰ä¸‹ å°é”®ç›˜1 æ¿€æ´»ä½¿ç”¨!";
+		cout << "°´ÏÂÐ¡¼üÅÌ1 Æô¶¯";
 		cout << "\n";
 		while (true) {
 			static bool init = false;
@@ -179,7 +208,7 @@ void makelight(int human, player man) // show player
 							{
 								makelight(b_play, player{ 2.5f,0.0f,0.0f,0.6f });
 							}
-							else if (p_hp <= 25 && p_hp > 1)
+							else if (p_hp <= 25 && p_hp > 0)
 							{
 								makelight(b_play, player{ 2.5f,2.5f,2.5f,0.6f });
 							}
@@ -207,7 +236,7 @@ void makelight(int human, player man) // show player
 						{
 							makelight(b_play, player{ 2.5f,0.0f,0.0f,0.6f });
 						}
-						else if (p_hp <= 25 && p_hp > 1)
+						else if (p_hp <= 25 && p_hp > 0)
 						{
 							makelight(b_play, player{ 2.5f,2.5f,2.5f,0.6f });
 						}
@@ -237,7 +266,7 @@ void makelight(int human, player man) // show player
 					int b_team = tom.Read<int>(LocalBase + oTeam);
 					int c_HP = tom.Read<int>(m_data + iHealth);
 					int c_team = tom.Read<int>(m_data + oTeam);
-					if (GetAsyncKeyState(VK_MENU) & 0x8000) 
+					if (GetAsyncKeyState(VK_MENU) & 0x8000)
 					{
 						if (c_HP > 0) 
 						{
@@ -288,6 +317,33 @@ void makelight(int human, player man) // show player
 					Sleep(15);
 					tom.Write<byte>(engine + dwbSendPackets, 1);
 					junkcodeb();
+				}
+
+				if (GetAsyncKeyState(VK_INSERT))
+				{
+					DWORD PlayerResoure = tom.Read<DWORD>(bClient + dwPRS);
+					int b_team = tom.Read<int>(LocalBase + oTeam);
+
+					for (int i = 0; i < 12; i++)
+					{
+						int rank = tom.Read<int>(PlayerResoure + iRank + i * 4);
+						int diTeam = tom.Read<int>(PlayerResoure + m_iTeam + i * 4);
+						int diScore = tom.Read<int>(PlayerResoure + iScore + i * 4);
+						int ping = tom.Read<int>(PlayerResoure + m_iping + i * 4);
+						if (rank < 0 && rank > 19) return 0;
+						if (diTeam > 1 && ping >= 5 && ping < 1000 && diTeam < 4)
+						{
+							if (diTeam != b_team)
+							{
+								cout << "\n [µÐÈË] [·ÖÊý:" << diScore << "]" << "[¶ÎÎ»:" << showranking[rank] << "]" << endl;
+							}
+							else
+							{
+								cout << "\n [¶ÓÓÑ] [·ÖÊý:" << diScore << "]" << "[¶ÎÎ»:" << showranking[rank] << "]" << endl;
+							}
+						}
+						Sleep(200);
+					}
 				}
 			}
 			return 0; 
