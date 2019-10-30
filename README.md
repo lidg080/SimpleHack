@@ -1,4 +1,4 @@
-# SimpleHack
+# SimpleHack For CSGO 10/30/2019
 CSGO 外部发光透视  
 反作弊(Anti-cheat) : VAC (still Safe)  
   
