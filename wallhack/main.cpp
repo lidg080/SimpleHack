@@ -8,19 +8,19 @@
 ProcMem tom; // memory obj
 
 DWORD Lplayer = 0xCFAA3C;  // dwLocalPlayer
-DWORD Elist = 0x4D0D094;  //EnityList
-DWORD glowobj = 0x524D500;  //dwGlowObject
-DWORD iattack = 0x313E7B0;
+DWORD Elist = 0x4D0D0A4;  //EnityList
+DWORD glowobj = 0x524D518;  //dwGlowObject
+DWORD iattack = 0x313E7C0;
 DWORD gIndex = 0xA40C;  //GlowIndex
 DWORD oTeam = 0xF4;
 DWORD oFlags = 0x104;
-DWORD iJump = 0x51B0748;
+DWORD iJump = 0x51B0758;
 DWORD CrossH = 0xB3AC;
 DWORD iHealth = 0x100;
 DWORD m_ifovs = 0x31E8;  //m_iFOVStart
 DWORD flashmax = 0xA3F0;
-DWORD dwbSendPackets = 0xD2F9A;  //dwbSendPackets
-DWORD dwPRS = 0x313CADC; //dwPlayerResource
+DWORD dwbSendPackets = 0xD2FEA;  //dwbSendPackets
+DWORD dwPRS = 0x313CAEC; //dwPlayerResource
 DWORD m_iTeam = 0xF38; //m_iOriginalTeamNumber
 DWORD iScore = 0x1980;
 DWORD iRank = 0x1A84; //m_iCompetitiveRanking
@@ -78,25 +78,25 @@ struct player
 
 const char* showranking[19] =
 {
-	"�޶�λ",
-	"����1",
-	"����2",
-	"����3",
-	"����4",
-	"����5",
-	"������ʦ",
-	"�ƽ�1",
-	"�ƽ�2",
-	"�ƽ�3",
-	"�ƽ�4",
-	"��AK",
-	"����AK",
-	"˫AK",
-	"�ջ�",
-	"С��ӥ",
-	"����ӥ",
-	"С����",
-	"�����"
+	"无段位",
+	"白银1",
+	"白银2",
+	"白银3",
+	"白银4",
+	"白银5",
+	"白银大师",
+	"黄金1",
+	"黄金2",
+	"黄金3",
+	"黄金4",
+	"单AK",
+	"麦穗AK",
+	"双AK",
+	"菊花",
+	"小老鹰",
+	"大老鹰",
+	"小地球",
+	"大地球"
 };
 
 void Startup() // do startup things
@@ -144,13 +144,13 @@ void makelight(int human, player man) // show player
 		/* MENU */
 
 		//cout << "welcome to TOM external!" << "\npress NUM1 to start!" << endl;
-		cout << "�� ";
+		cout << "欢 ";
 		type_eff();
-		cout << "ӭ ";
+		cout << "迎 ";
 		type_eff();
-		cout << "ʹ ";
+		cout << "使 ";
 		type_eff();
-		cout << "�� ";
+		cout << "用 ";
 		type_eff();
 		cout << "T";
 		type_eff();
@@ -158,27 +158,27 @@ void makelight(int human, player man) // show player
 		type_eff();
 		cout << "M ";
 		type_eff();
-		cout << "��";
+		cout << "外";
 		type_eff();
-		cout << "��";
+		cout << "置";
 		type_eff();
-		cout << "��";
+		cout << "辅";
 		type_eff();
-		cout << "��" << endl;
+		cout << "助" << endl;
 		type_eff();
 		Sleep(300);
 		cout << "\n" << endl;
-		cout << "˧˧˧˧˧    ˧˧˧  ˧˧˧  ˧˧˧" << endl;
-		cout << "˧  ˧  ˧  ˧      ˧  ˧˧  ˧˧" << endl;
-		cout << "    ˧      ˧      ˧  ˧˧  ˧˧" << endl;
-		cout << "    ˧      ˧      ˧  ˧˧  ˧˧" << endl;
-		cout << "    ˧      ˧      ˧  ˧  ˧  ˧" << endl;
-		cout << "    ˧      ˧      ˧  ˧  ˧  ˧" << endl;
-		cout << "  ˧˧˧      ˧˧˧  ˧˧  ˧  ˧˧" << endl;
+		cout << "帅帅帅帅帅    帅帅帅  帅帅帅  帅帅帅" << endl;
+		cout << "帅  帅  帅  帅      帅  帅帅  帅帅" << endl;
+		cout << "    帅      帅      帅  帅帅  帅帅" << endl;
+		cout << "    帅      帅      帅  帅帅  帅帅" << endl;
+		cout << "    帅      帅      帅  帅  帅  帅" << endl;
+		cout << "    帅      帅      帅  帅  帅  帅" << endl;
+		cout << "  帅帅帅      帅帅帅  帅帅  帅  帅帅" << endl;
 		//  cout << "" << endl;
 		Sleep(250);
 		cout << "\n";
-		cout << "����С����1 ����";
+		cout << "按下小键盘1 启动";
 		cout << "\n";
 		while (true) {
 			static bool init = false;
@@ -335,11 +335,11 @@ void makelight(int human, player man) // show player
 						{
 							if (diTeam != b_team)
 							{
-								cout << "\n [����] [����:" << diScore << "]" << "[��λ:" << showranking[rank] << "]" << endl;
+								cout << "\n [敌人] [分数:" << diScore << "]" << "[段位:" << showranking[rank] << "]" << endl;
 							}
 							else
 							{
-								cout << "\n [����] [����:" << diScore << "]" << "[��λ:" << showranking[rank] << "]" << endl;
+								cout << "\n [队友] [分数:" << diScore << "]" << "[段位:" << showranking[rank] << "]" << endl;
 							}
 						}
 						Sleep(200);
